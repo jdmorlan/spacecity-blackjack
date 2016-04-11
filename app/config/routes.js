@@ -7,7 +7,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 var hashHistory = ReactRouter.hashHistory;
 
-var Main = require('../components/main');
+import Main from '../components/main'
 
 var routes = (
   <Router history={hashHistory}>
