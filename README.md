@@ -22,3 +22,10 @@ the stylesheets found in the `sass` folder.
 
 The organization for stylesheets is based on
 [SASS Architecture Guidelines](http://sass-guidelin.es/#architecture)
+
+## Tests
+
+Modern Boilerplate uses `mocha` as its test runner. Your tests should go
+into the `/tests` folder and have the following naming convention:
+
+`/tests/{testName}.test.js`
