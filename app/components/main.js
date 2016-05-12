@@ -1,10 +1,13 @@
 import React from 'react'
 
+import Header from './header'
+
 const Main = React.createClass({
   render () {
     return (
       <div>
-        <h1>Main</h1>
+        <Header />
+        { this.props.children }
       </div>
     )
   }

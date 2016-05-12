@@ -1,10 +1,13 @@
 import React from 'react'
-import { Router, Route, browserHistory } from 'react-router'
-import Main from '../components/main'
+import { Router, Route } from 'react-router'
 
-export default (
-  <Router history={browserHistory}>
-    <Route path='/' component={Main}>
-    </Route>
-  </Router>
-);
+import MainContainer from '../containers/mainContainer'
+
+export default function getRoutes (history) {
+  return (
+    <Router history={ history }>
+      <Route path='/' component={ MainContainer }>
+      </Route>
+    </Router>
+  )
+}
