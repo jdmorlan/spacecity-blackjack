@@ -2,18 +2,17 @@ import { buildDeck } from '../../helpers/deck'
 import * as gameHelpers from '../../helpers/gameHelpers'
 import { determineResult } from '../../helpers/blackjackRules'
 
-const CREATE_DECK = 'CREATE_DECK'
-const INITIAL_DEAL = 'INITIAL_DEAL'
-const DETERMINE_WINNER = 'DETERMINE_WINNER'
-const CLEAR_WINNER = 'CLEAR_WINNER'
+const CREATE_DECK = 'CREATE_DECK' // Good
+const DETERMINE_WINNER = 'DETERMINE_WINNER' // Good
+const CLEAR_WINNER = 'CLEAR_WINNER' // Good
 
 
-const DRAW_PLAYER_CARD = 'DRAW_PLAYER_CARD'
-const SET_PLAYER_STAY = 'SET_PLAYER_STAY'
-const CALCULATE_CARD_COUNT = 'CALCULATE_PLAYER_CARD_COUNT'
+const DRAW_PLAYER_CARD = 'DRAW_PLAYER_CARD' // Good
+const SET_PLAYER_STAY = 'SET_PLAYER_STAY' // Good
+const CALCULATE_CARD_COUNT = 'CALCULATE_PLAYER_CARD_COUNT' // Good
 
-const DRAW_DEALER_CARD = 'DRAW_DEALER_CARD'
-const SHOW_DEALER_CARDS = 'SHOW_DEALER_CARDS'
+const DRAW_DEALER_CARD = 'DRAW_DEALER_CARD' // Good
+const SHOW_DEALER_CARDS = 'SHOW_DEALER_CARDS' // Good
 
 export function initialDeal() {
   return function(dispatch) {
@@ -22,21 +21,36 @@ export function initialDeal() {
     dispatch(drawPlayerCard())
     dispatch(drawDealerCard(false))
     dispatch(calculateCardCount())
+    dispatch(handleWinner())
   }
 }
 
 export function playerHit() {
-  return function(dispatch) {
+  return function(dispatch, getState) {
     dispatch(drawPlayerCard())
     dispatch(calculateCardCount())
+
+    const state = getState()
+    if (state.game.player.cardCount >= 21) {
+      dispatch(completeDealerCards())
+      dispatch(calculateCardCount())
+    }
+
+    dispatch(handleWinner())
   }
 }
 
 export function playerStay() {
-  return function(dispatch, getState) {
-    const state = getState()
-    let dealerCardCount = state.game.dealer.cardCount
+  return function(dispatch) {
     dispatch(setPlayerStay())
+    dispatch(completeDealerCards())
+    dispatch(handleWinner())
+  }
+}
+
+export function completeDealerCards() {
+  return function(dispatch, getState) {
+    let dealerCardCount = getState().game.dealer.cardCount
 
     while (dealerCardCount <= 16) {
       dispatch(drawDealerCard())
@@ -113,14 +127,12 @@ export function showDealerCards() {
 
 const initialState = {
   cards: buildDeck(),
-  winner: false,
   player: {
-    busted: false,
+    hasStayed: false,
     cards: [],
     cardCount: 0
   },
   dealer: {
-    busted: false,
     cards: [],
     cardCount: 0
   },

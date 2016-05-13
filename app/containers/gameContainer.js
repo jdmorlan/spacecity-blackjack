@@ -16,20 +16,18 @@ const GameContainer = React.createClass({
   },
 
   restart() {
+    this.props.dispatch(gameActions.clearWinner())
     this.props.dispatch(gameActions.createDeck())
     this.props.dispatch(gameActions.initialDeal())
-    this.props.dispatch(gameActions.clearWinner())
   },
 
   hit () {
     this.props.dispatch(gameActions.playerHit())
-    this.props.dispatch(gameActions.handleWinner())
   },
 
   stay () {
     this.props.dispatch(gameActions.showDealerCards())
     this.props.dispatch(gameActions.playerStay())
-    this.props.dispatch(gameActions.handleWinner())
   },
 
   render () {

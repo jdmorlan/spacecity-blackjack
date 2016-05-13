@@ -14,6 +14,8 @@ function buildMessage(message, hasWinner = true) {
 }
 
 function getEvaluationObject(dealer, player) {
+  console.log(dealer)
+  console.log(player)
   return {
     hs: player.hasStayed,
     phb: hasBlackjack(player),
@@ -27,11 +29,25 @@ function getEvaluationObject(dealer, player) {
 
 export function determineResult(dealer, player) {
   const eo = getEvaluationObject(dealer, player)
+  console.log("evaluation-object", eo)
 
+  // If Player has Blackjack and Dealer does not have Blackjack,
+  // then the player wins
   if (eo.phb && !eo.dhb) {
     return buildMessage('Player Wins')
   }
 
+  if (eo.pb && eo.db) {
+    return buildMessage('Draw')
+  }
+
+  if (eo.phb && eo.dhb) {
+    return buildMessage('Draw')
+  }
+
+  // If player has stayed, the dealer has not busted, the player has not
+  // busted and both the dealer and player have the same card count
+  // it is a draw
   if (eo.hs && !eo.db && !eo.pb && eo.ped) {
     return buildMessage('Draw')
   }
