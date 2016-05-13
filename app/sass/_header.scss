@@ -1,23 +1,54 @@
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
-  padding-left: 60px;
+  padding: 10px 60px;
   margin-bottom: 5px;
 
-  svg {
-    width: 75px;
-    height: 75px;
-    fill: #853BE2;
-  }
+  .logo {
+    display: flex;
+    align-items: center;
 
-  a {
-    color: #853BE2;
-    text-decoration: none;
+    svg {
+      width: 75px;
+      height: 75px;
+      fill: #853BE2;
+    }
 
     h1 {
+      color: #853BE2;
       margin: 0;
       font-weight: 500;
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-top: 4px;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+      fill: #853BE2;
+
+      &:hover {
+        fill: darken(#853BE2, 20%);
+      }
+    }
+
+    a {
+      color: #853BE2;
+
+      i {
+        font-size: 30px;
+
+        &:hover {
+          color: darken(#853BE2, 20%);
+        }
+      }
     }
   }
 }

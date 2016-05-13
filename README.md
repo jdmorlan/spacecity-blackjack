@@ -1,31 +1,20 @@
-# Modern Boilerplate
+# Spacecity Blackjack
 
-This is a very basic boilerplate that I am using to develop
-modern Javascript applications.
+First off, check out the site for the [Spacecity.js](http://www.spacecityjs.com/)
+conference.
 
-## React Components
+So, I have been playing around with React and Redux and I figured a Blackjack
+game would give me enough complexity to sink my teeth into. I was trying to
+figure out what kind of card design I wanted and thought...wouldn't it be cool
+if we had playing cards based on SpaceCity and javascript frameworks.
 
-All React components should go in the `app/components` folder.
+The app uses the following libraries:
 
-## React Router
+- React
+- React Router
 
-The `app/index.js` file is setup to load the defined routes found
-at `app/config/routes.js`. Routes are configured with React Router.
-If you need an introduction check out the
-[Github Repo](https://github.com/reactjs/react-router)
+- Redux
+- Redux Thunk (Asynchronous Actions)
+- React Router Redux
 
-## Stylesheets
-
-I haven't bought into the whole `inline-styles` concept yet. So, I still
-use basic SASS stylesheets. The `main.scss` file is used to import all
-the stylesheets found in the `sass` folder.
-
-The organization for stylesheets is based on
-[SASS Architecture Guidelines](http://sass-guidelin.es/#architecture)
-
-## Tests
-
-Modern Boilerplate uses `mocha` as its test runner. Your tests should go
-into the `/tests` folder and have the following naming convention:
-
-`/tests/{testName}.test.js`
+Webpack and Babel are used to transpile the code from ES6/7 to ES5 code.

@@ -7,10 +7,19 @@ const Header = React.createClass({
   render () {
     return (
       <header>
-        <SpaceCityLogo />
-        <Link to='/'>
+
+        <div className="logo">
+          <SpaceCityLogo />
           <h1>Spacecity Blackjack</h1>
-        </Link>
+        </div>
+        <div className="links">
+          <a href="http://www.spacecityjs.com/">
+            <SpaceCityLogo />
+          </a>
+          <a href="http://www.github.com/jdmorlan/spacecity-blackjack">
+            <i className="fa fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
       </header>
     )
   }
