@@ -1,0 +1,26 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 60px;
+
+  .result {
+    display: flex;
+    align-items: center;
+    border: 2px solid darken(#FAF9F4, 5%);
+    border-radius: 2px;
+    padding: 7px 5px;
+
+    .scores {
+      margin-left: 15px;
+    }
+  }
+
+  .cards-area {
+    .card-area {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+}

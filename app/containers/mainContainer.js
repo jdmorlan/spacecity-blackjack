@@ -1,12 +1,22 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import Main from '../components/main'
+import { drawPlayerCard, calculatePlayerCardCount } from '../redux/modules/game'
+import { calculatePlayerBust, createDeck } from '../redux/modules/game'
+
+import Header from '../components/header'
 
 const MainContainer = React.createClass({
+  propTypes: {
+    children: PropTypes.object.isRequired
+  },
+
   render () {
     return (
-      <Main />
+      <div>
+        <Header />
+        { this.props.children }
+      </div>
     )
   }
 })

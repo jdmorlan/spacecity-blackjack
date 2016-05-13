@@ -8,13 +8,15 @@ import getReducers from './redux/modules'
 
 import { hashHistory } from 'react-router'
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
 
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
 const store = createStore(
-  getReducers({ routing: routerReducer })
+  getReducers({ routing: routerReducer }),
+  applyMiddleware(thunkMiddleware)
 )
 
 const history = syncHistoryWithStore(hashHistory, store)

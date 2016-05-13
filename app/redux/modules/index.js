@@ -1,10 +1,10 @@
-import labels from './labels'
+import game from './game'
 
 import { combineReducers } from 'redux'
 
 export default function getReducers (reducers = {}) {
   const defaultReducers = {
-    labels
+    game
   }
 
   return combineReducers(Object.assign({}, defaultReducers, reducers))

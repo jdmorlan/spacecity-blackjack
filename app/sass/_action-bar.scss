@@ -1,0 +1,55 @@
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 2px solid darken(#FAF9F4, 5%);
+
+  .actions {
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+
+    .card-count {
+      color: #853BE2;
+      font-weight: 500;
+      font-size: 20px;
+      margin-right: 20px;
+    }
+
+    .btn {
+      font-weight: 700;
+      color: transparentize(#853BE2, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FAF9F4;
+      border: 1px solid #ecf0f1;
+      padding: 7px 5px;
+      width: 130px;
+      margin-right: 10px;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: #853BE2;
+        border: 1px solid darken(#853BE2, 4%);
+        border-radius: 2px;
+        color: #fff;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: #ecf0f1;
+
+      }
+    }
+  }
+}

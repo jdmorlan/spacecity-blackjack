@@ -1,0 +1,28 @@
+.card-area {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  padding: 13px 5px;
+
+  border: 1px solid transparentize(#853BE2, 0.9);
+  border-radius: 2px;
+
+  .title {
+    color: transparentize(#853BE2, 0.6);
+    border-left: 1px solid transparentize(#853BE2, 0.9);
+    border-top: 1px solid transparentize(#853BE2, 0.9);
+    border-radius: 2px 0 0 0;
+    padding: 4px 6px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .card {
+    margin-right: 15px;
+  }
+
+  .card:last-child {
+    margin: 0;
+  }
+}

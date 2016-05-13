@@ -2,6 +2,20 @@
 // Organize your scss files in the stylesheets folder.
 // Checkout the SASS Guidelines - http://sass-guidelin.es/
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 @import 'sass/base/normalize';
-
 @import 'sass/abstracts/variables';
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: #FAF9F4;
+}
+
+@import 'sass/header';
+
+@import 'sass/game';
+@import 'sass/card-area';
+@import 'sass/action-bar';
+@import 'sass/results-view';
+@import 'sass/card';
